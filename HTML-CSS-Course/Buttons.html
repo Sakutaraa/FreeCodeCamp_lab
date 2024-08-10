@@ -1,11 +1,70 @@
 <style>
-    button {
-        background-color: red;
-        color: white;
-        border: none;
-        height: 36px;
-        width: 105px;
+ :root {
+    --color-white-shade: #aeaaaa96;
+    --color-black: #000000;
+    --color-white: #ffffff;
+}
+
+.btns {
+    display: flex;
+    column-gap: 2rem;
+    background-color: var(--color-white-shade);
+}
+
+.btn {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    cursor: pointer;
+    transition:  
+    :root {
+    --color-white-shade: #aeaaaa96;
+    --color-black: #000000;
+    --color-white: #ffffff;
+}
+
+.btns {
+    display: flex;
+    column-gap: 2rem;
+    background-color: var(--color-white-shade);
+}
+
+.btn {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.25s ease-in; /* Sử dụng all để áp dụng cho tất cả các thuộc tính transition */
+
+    &:hover {
+        transform: scale(1.2);
+        opacity: 0.8;
+        filter: blur(4px);
     }
+}
+
+.btns:has(.btns:hover) .btn:not(:hover) {
+    transform: scale(0.8);
+    opacity: 0.8;
+    filter: blur(4px);
+}
+0.25s ease-in; /* Sử dụng all để áp dụng cho tất cả các thuộc tính transition */
+
+    &:hover {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: blur(4px);
+    }
+}
+
+.btns:has(.btns:hover) .btn:not(:hover) {
+    transform: scale(1);
+    opacity: 0.8;
+    filter: blur(4px);
+}
+
 </style>
 
-<button>SUBSCRIBE</button>
+<div class="btns">
+    <button class="btn">Hover me!</button>
+    <button class="btn">Hover me!</button>
+    <button class="btn">Hover me!</button>
+</div>
