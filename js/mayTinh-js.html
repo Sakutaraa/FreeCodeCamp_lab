@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Máy tính đơn giản</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <br>
+    <button onclick="cong()">+</button>
+    <button onclick="tru()">-</button>
+    <button onclick="nhan()">x</button>
+    <button onclick="chia()">/</button>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        function cong() {
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            let result = parseInt(num1) + parseInt(num2);
+            document.getElementById("result").innerHTML = result;
+        }
+
+        function tru() {
+            // Tương tự như hàm cong
+        }
+
+        function nhan() {
+            // Tương tự như hàm cong
+        }
+
+        function chia() {
+            // Tương tự như hàm cong
+        }
+    </script>
+</body>
+</html>
