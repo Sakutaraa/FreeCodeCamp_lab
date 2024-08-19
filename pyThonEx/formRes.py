@@ -1,34 +1,35 @@
+from curses import window
 import tkinter as tk
 
-def login():
-    username = entry_username.get()
-    password = entry_password.get()
-    # Ở đây bạn sẽ thực hiện kiểm tra thông tin đăng nhập
-    # Ví dụ: so sánh với thông tin lưu trữ trong một file hoặc cơ sở dữ liệu
-    if username == "admin" and password == "password123":
-        label_result["text"] = "Đăng nhập thành công!"
-    else:
-        label_result["text"] = "Tên đăng nhập hoặc mật khẩu không đúng!"
+def register():
+    username = entry_username.get() # type: ignore
+    password = entry_password.get() # type: ignore
+    confirm_password = entry_confirm_password.get()
+    email = entry_email.get()
 
-window = tk.Tk()
-window.title("Form đăng nhập")
+    # Kiểm tra tính hợp lệ của dữ liệu
+    if password != confirm_password:
+        label_result["text"] = "Mật khẩu không khớp!" # type: ignore
+        return
 
-label_username = tk.Label(window, text="Tên đăng nhập:")
-label_username.pack()
+    # Ở đây bạn sẽ thực hiện lưu thông tin đăng ký vào cơ sở dữ liệu
+    # Ví dụ: sử dụng thư viện SQLite để tạo một bảng người dùng và lưu thông tin vào đó
+    # ... (code kết nối và lưu dữ liệu vào cơ sở dữ liệu)
 
-entry_username = tk.Entry(window)
-entry_username.pack()
+    label_result["text"] = "Đăng ký thành công!" # type: ignore
 
-label_password = tk.Label(window, text="Mật khẩu:")
-label_password.pack()
+# ... (các phần còn lại của code như trong ví dụ trước)
 
-entry_password = tk.Entry(window, show="*")
-entry_password.pack()
+# Thêm các trường mới cho form đăng ký
+label_confirm_password = tk.Label(window, text="Xác nhận mật khẩu:")
+label_confirm_password.pack()
+entry_confirm_password = tk.Entry(window, show="*")
+entry_confirm_password.pack()
 
-button_login = tk.Button(window, text="Đăng nhập", command=login)
-button_login.pack()
+label_email = tk.Label(window, text="Email:")
+label_email.pack()
+entry_email = tk.Entry(window)
+entry_email.pack()
 
-label_result = tk.Label(window, text="")
-label_result.pack()
-window.geometry("400x300")
-window.mainloop()
+# Thay đổi nhãn của nút đăng nhập thành "Đăng ký"
+button_login.config(text="Đăng ký") # type: ignore
